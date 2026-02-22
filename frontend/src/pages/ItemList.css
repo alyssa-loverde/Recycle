@@ -58,3 +58,6 @@ h1 {
   background: #475d48;
   margin: 0.6rem 0;
 }
+@media (max-width:720px){
+  .hero-title{ font-size:2rem; }
+}
