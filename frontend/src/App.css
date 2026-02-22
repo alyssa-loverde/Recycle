@@ -1,0 +1,52 @@
+/* Navigation Bar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #11ad2b; /* Dark background from your image */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Logo Section */
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Links Container */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Individual Link Styling */
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: #ccc; /* Subtle hover effect */
+}
+
+/* Search Bar Placeholder */
+.nav-search {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 6px 18px;
+    color: #888;
+    font-size: 14px;
+    min-width: 150px;
+}
+
+/* Main Content Area */
+.content-container {
+    padding: 40px;
+}
