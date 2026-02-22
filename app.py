@@ -15,14 +15,13 @@ def setup_database():
     db.commit()
 
 def add_user(name):
-    new_id = cursor.lastrowid + 1
-    cursor.execute('''INSERT INTO users (id, name, points) VALUES
-                   (?, ?, ?) ''', (new_id, name, 0))
+    cursor.execute('''INSERT INTO users (name, points) VALUES
+                   ( ?, ?) ''', (name, 0))
     db.commit()
-    print("Your ID is ", new_id)
+    print("Your ID is ", cursor.lastrowid)
 
 def increment_points(id):
-    cursor.execute(f'''UPDATE users SET points = points + 1 WHERE id=id''')
+    cursor.execute('''UPDATE users SET points = points + 1 WHERE id=(?)''', (id,))
     db.commit()
     print("Points have been incrememented")
 
@@ -34,7 +33,3 @@ def read_records():
         name = row[1]
         points = row[2]
         print(f"{id} : {name} : {points}")
-
-setup_database()
-increment_points(1)
-read_records()
