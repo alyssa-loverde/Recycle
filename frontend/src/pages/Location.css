@@ -1,5 +1,4 @@
 .Location {
-<<<<<<< HEAD
   text-align: center;
 }
 
@@ -57,9 +56,9 @@
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
-=======
     text-align: center;
   }
+}
   
   .App-logo {
     height: 40vmin;
@@ -70,7 +69,6 @@
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
     }
->>>>>>> 2fedca6ff2f8f8eaf5c39a4b369069c90b658b63
   }
   
   .App-header {
