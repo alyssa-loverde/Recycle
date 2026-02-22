@@ -4,7 +4,7 @@ Milk Jug,HDPE,2
 Shampoo Bottle,HDPE,2
 PVC Piping,PVC,3
 Cling Wrap,LDPE,4
-Grocery Bag,LDPE,5
+Grocery Bag,LDPE,4
 Yogurt Container,PP,5
 Takeout Container,PP,5
 Egg Carton,PS,6
@@ -17,3 +17,5 @@ Cardboard Box,Not_Recylable,0
 Newspaper,Not_Recylable,0
 Steel Soup Can,Not_Recylable,0
 Copper Wiring,Not_Recylable,0
+Soda Bottle,PET,1
+Acrylic,Other,7
