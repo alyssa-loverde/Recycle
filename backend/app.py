@@ -5,6 +5,7 @@ from csv_reader import *
 
 # Configure app
 app = Flask(__name__)
+CORS(app)
 
 setup_database()
 
@@ -25,6 +26,22 @@ def get_data():
         # Calls the fixed read_records()
         user_data = read_records()
         return jsonify(user_data)
+
+@app.route('/users/increment', methods=['PATCH'])
+def increment_user_points():
+    data = request.get_json()
+    name = data.get("name")
+    increment_points(name) 
+    return jsonify({"message": f"Points have been incremented for {name}"})
+
+@app.route('/users/delete', methods=['DELETE'])
+def remove_user():
+    # Use args.get to match the `?name=` in your React fetch
+    name = request.args.get("name")
+    if name:
+        delete_user(name)
+        return jsonify({"message": f"User {name} deleted"}), 200
+    return jsonify({"error": "No name provided"}), 400
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

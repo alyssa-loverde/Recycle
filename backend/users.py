@@ -35,6 +35,13 @@ def increment_points(name):
     else:
         return "This user does not exist"
 
+def delete_user(name):
+    db = sqlite3.connect("users.db")
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM users WHERE name=(?)", (name,))
+    db.commit()
+    return f"{name} has been deleted"
+
 def read_records():
     db = sqlite3.connect("users.db")
     cursor = db.cursor()

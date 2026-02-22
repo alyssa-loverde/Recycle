@@ -1,106 +1,106 @@
 import React, { useState, useEffect } from 'react';
 
+const Accounts = () => {
+    const [users, setUsers] = useState({});
+    const [nameInput, setNameInput] = useState("");
 
-function App() {
- const [users, setUsers] = useState({});
- const [nameInput, setNameInput] = useState("");
- const [loading, setLoading] = useState(true);
+    // The style name we discussed earlier
+    const leaderboardItemStyle = {
+        background: '#f8f9fa',
+        margin: '8px 0',
+        padding: '12px 20px',
+        borderRadius: '6px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        border: '1px solid #ddd'
+    };
 
+    // 1. READ (Display users in descending order)
+    const fetchUsers = () => {
+        fetch("/users")
+            .then(res => {
+                if (!res.ok) throw new Error("Backend error");
+                return res.json();
+            })
+            .then(data => setUsers(data))
+            .catch(err => console.error("Fetch error:", err));
+    };
 
- const fetchUsers = () => {
-   fetch("/users")
-     .then((res) => res.json())
-     .then((data) => {
-       setUsers(data);
-       setLoading(false);
-     })
-     .catch((err) => console.error("Error fetching users:", err));
- };
+    useEffect(() => { fetchUsers(); }, []);
 
+    // 2. CREATE (Add User)
+    const handleAdd = async (e) => {
+        e.preventDefault();
+        if (!nameInput) return;
+        await fetch("/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: nameInput })
+        });
+        setNameInput("");
+        fetchUsers();
+    };
 
- useEffect(() => {
-   fetchUsers();
- }, []);
+    // 3. UPDATE (Increment Points - PATCH is the official name)
+    const handleIncrement = async (name) => {
+        await fetch("/users/increment", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: name })
+        });
+        fetchUsers();
+    };
 
+    // 4. DELETE (Remove User - DELETE is the official name)
+    const handleDelete = async (name) => {
+        await fetch(`/users/delete?name=${name}`, {
+            method: "DELETE"
+        });
+        fetchUsers();
+    };
 
- const handleSignUp = async (e) => {
-   e.preventDefault();
-   if (!nameInput) return;
+    return (
+        <div style={{ padding: '20px', maxWidth: '600px', margin: 'auto', fontFamily: 'sans-serif' }}>
+            <h2>♻️ User Accounts</h2>
+            
+            <form onSubmit={handleAdd} style={{ marginBottom: '20px' }}>
+                <input 
+                    value={nameInput} 
+                    onChange={(e) => setNameInput(e.target.value)} 
+                    placeholder="New user name..."
+                    style={{ padding: '8px', width: '200px' }}
+                />
+                <button type="submit" style={{ padding: '8px', marginLeft: '5px', backgroundColor: '#28a745', color: 'white', border: 'none', cursor: 'pointer' }}>
+                    Sign Up
+                </button>
+            </form>
 
-
-   await fetch("/users", {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify({ name: nameInput }),
-   });
-
-
-   setNameInput("");
-   fetchUsers();
- };
-
-
- // I added inline styles here so your app isn't blank and is easy to read
- const containerStyle = {
-   padding: '40px',
-   fontFamily: 'Arial, sans-serif',
-   maxWidth: '600px',
-   margin: '0 auto',
-   color: '#333'
- };
-
- const leaderboardItemStyle = {
-  background: '#f8f9fa', // The light gray background
-  margin: '8px 0',
-  padding: '12px 20px',
-  borderRadius: '6px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  border: '1px solid #eee',
-  fontFamily: 'sans-serif'
+            <ul style={{ listStyle: 'none', padding: 0 }}>
+                {Object.entries(users)
+                    .sort(([, a], [, b]) => b - a) // JavaScript double-check on sorting
+                    .map(([name, points]) => (
+                        <li key={name} style={leaderboardItemStyle}>
+                            <span><strong>{name}</strong>: {points} points</span>
+                            <div>
+                                <button 
+                                    onClick={() => handleIncrement(name)}
+                                    style={{ marginRight: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                                >
+                                    +1
+                                </button>
+                                <button 
+                                    onClick={() => handleDelete(name)} 
+                                    style={{ backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        </li>
+                    ))}
+            </ul>
+        </div>
+    );
 };
 
-
- return (
-   <div style={containerStyle}>
-     <h1>♻️ Recycle Dashboard</h1>
-
-
-     <form onSubmit={handleSignUp} style={{ marginBottom: '20px' }}>
-       <input
-         type="text"
-         placeholder="Enter name..."
-         value={nameInput}
-         onChange={(e) => setNameInput(e.target.value)}
-         style={{ padding: '10px', width: '200px', borderRadius: '4px', border: '1px solid #ccc' }}
-       />
-       <button type="submit" style={{ padding: '10px 20px', marginLeft: '10px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-         Sign Up
-       </button>
-     </form>
-
-
-     <hr />
-
-
-     <h2>Leaderboard</h2>
-     {loading ? (
-       <p>Connecting to Flask...</p>
-     ) : (
-       <ul style={{ listStyle: 'none', padding: 0 }}>
-         {Object.entries(users)
-           .sort(([,a], [,b]) => b - a) // This double-checks the sort in the browser
-           .map(([name, points]) => (
-      <li key={name} style={leaderboardItemStyle}>
-      <strong>{name}</strong>: {points} points
-       </li>
-         ))}
-       </ul>
-     )}
-   </div>
- );
-}
-
-
-export default App;
+export default Accounts;
