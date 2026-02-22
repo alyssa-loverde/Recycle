@@ -1,5 +1,5 @@
 import React from "react";
-import '../ItemList.css';
+import './ItemList.css';
 
 function Home(){
   return (
