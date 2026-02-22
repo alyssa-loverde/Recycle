@@ -1,19 +1,19 @@
-Item,Recycling Code
-Water Bottle (PET),1
-Milk Jug (HDPE),2
-Shampoo Bottle (HDPE),2
-PVC Piping (PVC),3
-Cling Wrap (LDPE),4
-Grocery Bag (LDPE),5
-Yogurt Container (PP),5
-Takeout Container (PP),5
-Egg Carton (PS),6
-Styrofoam Cup (PS),6
-Sunglasses (Other),7
-Baby Bottle (Other),7
-Aluminum Can,0
-Glass Jar,0
-Cardboard Box,0
-Newspaper,0
-Steel Soup Can,0
-Copper Wiring,0
+Item,Material,Recycling Code
+Water Bottle,PET,1
+Milk Jug,HDPE,2
+Shampoo Bottle,HDPE,2
+PVC Piping,PVC,3
+Cling Wrap,LDPE,4
+Grocery Bag,LDPE,5
+Yogurt Container,PP,5
+Takeout Container,PP,5
+Egg Carton,PS,6
+Styrofoam Cup,PS,6
+Sunglasses,Other,7
+Baby Bottle,Other,7
+Aluminum Can,Not_Recylable,0
+Glass Jar,Not_Recylable,0
+Cardboard Box,Not_Recylable,0
+Newspaper,Not_Recylable,0
+Steel Soup Can,Not_Recylable,0
+Copper Wiring,Not_Recylable,0
