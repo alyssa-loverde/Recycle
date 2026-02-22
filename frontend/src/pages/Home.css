@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .Home {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -20,26 +19,3 @@
   margin: 0.25rem 0;
   font-size: 1.5rem; /* smaller than main heading */
 }
-=======
-.Home {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111;
-  padding: 1rem;
-  background-color: #F7FFF6; /* very light, near-white green to complement icons */
-}
-
-.Home h1 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #2E8B57; /* sea green for main heading */
-}
-
-.Home p {
-  text-align: center;
-  color: #475d48;
-  font-weight: 700; /* bold letters */
-  margin: 0.25rem 0;
-  font-size: 1.5rem; /* smaller than main heading */
-}
->>>>>>> 898809b7025364cd2621942ad37fd015a9f692ee
