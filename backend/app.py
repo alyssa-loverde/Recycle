@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, session, make_response
 from flask_cors import CORS
 from users import *
-from csv_reader import *
+from csv_helpers import *
 
 # Configure app
 app = Flask(__name__)
@@ -42,6 +42,20 @@ def remove_user():
         delete_user(name)
         return jsonify({"message": f"User {name} deleted"}), 200
     return jsonify({"error": "No name provided"}), 400
+
+@app.route('/items', methods=['GET', 'POST'])
+def items():
+    if (request.method == 'POST'):
+        data = request.get_json()
+        item = data.get("item")
+        material = data.get("material")
+        code = data.get("code")
+        add_item(item, material, code)
+        return jsonify({"status": "success", "message": "The Item has been added!"})
+    else:
+        items = get_all_items()
+        return jsonify(items)
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
