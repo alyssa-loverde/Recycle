@@ -1,4 +1,4 @@
-.App {
+.ItemList {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   color: #111;
@@ -57,39 +57,4 @@ h1 {
   height: 1px;
   background: #475d48;
   margin: 0.6rem 0;
-}
-
-/* Home / Hero styles (match ItemList colors) */
-.hero{
-  text-align: center;
-  padding: 48px 20px;
-  max-width: 980px;
-  margin: 40px auto;
-  background: rgba(139,195,74,0.06);
-  border-radius: 12px;
-}
-.hero-title{
-  font-size: 3rem;
-  margin: 0 0 12px 0;
-  color: #475d48;
-}
-.hero-subtitle{
-  font-size: 1.25rem;
-  margin: 0 0 20px 0;
-  color: #475d48;
-  opacity: 0.95;
-}
-.hero-cta{ display: flex; gap: 12px; justify-content:center; flex-wrap:wrap; }
-.cta-button{
-  display: inline-block;
-  padding: 10px 18px;
-  background: #8BC34A;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-@media (max-width:720px){
-  .hero-title{ font-size:2rem; }
 }
