@@ -1,0 +1,95 @@
+.App {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    padding: 1rem;
+    background-color: #F7FFF6; /* very light, near-white green to complement icons */
+  }
+  
+  .codes-list {
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 16px 12px;
+    background: rgba(139,195,74,0.06);
+    border-radius: 12px;
+  }
+  
+  .code-block {
+    padding: 0.6rem 0;
+  }
+  
+  .code-heading {
+    text-align: center;
+    color: #475d48;
+    font-weight: 700; /* bold material names */
+    margin: 0.25rem 0;
+    font-size: 1.25rem; /* smaller than main heading */
+  }
+  
+  .heading-with-icon {
+    display: flex;
+    flex-direction: column; /* place icon above the name */
+    align-items: center;
+    justify-content: center;
+  
+    gap: 0.4rem;
+  }
+  
+  .number-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  h1 {
+    font-size: 2.75rem;
+    margin: 0.5rem 0 1rem;
+    color: #475d48;
+  }
+  
+  .code-info {
+    text-align: center;
+    margin: 0.25rem 0 0.6rem;
+    color: #475d48; /* dark green */
+  }
+  
+  .separator {
+    border: none;
+    height: 1px;
+    background: #475d48;
+    margin: 0.6rem 0;
+  }
+  
+  /* Home / Hero styles (match ItemList colors) */
+  .hero{
+    text-align: center;
+    padding: 48px 20px;
+    max-width: 980px;
+    margin: 40px auto;
+    background: rgba(139,195,74,0.06);
+    border-radius: 12px;
+  }
+  .hero-title{
+    font-size: 3rem;
+    margin: 0 0 12px 0;
+    color: #475d48;
+  }
+  .hero-subtitle{
+    font-size: 1.25rem;
+    margin: 0 0 20px 0;
+    color: #475d48;
+    opacity: 0.95;
+  }
+  .hero-cta{ display: flex; gap: 12px; justify-content:center; flex-wrap:wrap; }
+  .cta-button{
+    display: inline-block;
+    padding: 10px 18px;
+    background: #8BC34A;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  @media (max-width:720px){
+    .hero-title{ font-size:2rem; }
+  }
