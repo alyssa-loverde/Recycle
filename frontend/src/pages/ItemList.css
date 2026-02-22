@@ -56,3 +56,24 @@
     font-weight: bold;
     margin-right: 10px;
 }
+
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+  
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid #eee;
+    border-radius: 25px; /* Rounded pill style */
+    transition: border-color 0.3s;
+    outline: none;
+}
+  
+  .search-input:focus {
+    border-color: #000;
+}
