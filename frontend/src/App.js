@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './App.css'; // Import your new CSS file here
 import Location from './pages/Location';
-import Item_list from './pages/Item_list';
+import ItemList from './pages/ItemList';
 import Accounts from './pages/Accounts';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           </Link>
           
           <div className="nav-links">
+            <Link to="/Home" className="nav-item">Home</Link>
             <Link to="/Location" className="nav-item">Location</Link>
-            <Link to="/Item_list" className="nav-item">Item_list</Link>
+            <Link to="/Item_list" className="nav-item">ItemList</Link>
             <Link to="/Accounts" className="nav-item">Accounts</Link>
           </div>
 
@@ -25,9 +27,10 @@ function App() {
         {/* --- PAGE CONTENT --- */}
         <div className="content-container">
           <Routes>
-            <Route path="/" element={<Item_list />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Location" element={<Location />} />
-            <Route path="/Item_list" element={<Item_list />} />
+            <Route path="/ItemList" element={<ItemList />} />
+            <Route path="/Home" element={<Home />} />
             <Route path="/Accounts" element={<Accounts />} />
           </Routes>
         </div>
