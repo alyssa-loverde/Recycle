@@ -1,12 +1,19 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
+import Location from './pages/location';
+
 
 function App() {
   return (
-    <div className="App">
-        <h1>my react app</h1>
+    
+    <Router>
+        <Routes>
+          <Route path="/pages/location" elemnt={<location />}/> 
+          
+        </Routes>
+      
+    </Router>
 
-    </div>
   );
 }
 
