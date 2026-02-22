@@ -14,7 +14,7 @@ const codes = [
 
 function ItemList(){
   return (
-    <div className="App">
+    <div className="ItemList">
       <h1>Recycling Codes</h1>
 
       <section className="codes-list">
