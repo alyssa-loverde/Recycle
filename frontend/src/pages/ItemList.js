@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css';
+import '../ItemList.css';
 
 const codes = [
   { code: 0, name: 'Not_Recyclable', items: ['Aluminum Can', 'Glass Jar', 'Cardboard Box', 'Newspaper', 'Steel Soup Can', 'Copper Wiring'] },
@@ -14,7 +14,7 @@ const codes = [
 
 function ItemList(){
   return (
-    <div className="App">
+    <div className="ItemList">
       <h1>Recycling Codes</h1>
 
       <section className="codes-list">
