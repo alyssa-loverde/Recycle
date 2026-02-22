@@ -47,9 +47,3 @@ def read_records():
         name = row[0]
         points = row[1]
         print(f"{name} : {points}")
-
-setup_database()
-add_user("Pranet")
-increment_points("Pranet")
-increment_points("null")
-
