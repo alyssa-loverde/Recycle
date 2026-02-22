@@ -3,6 +3,7 @@ import './App.css'; // Import your new CSS file here
 import Location from './pages/Location';
 import Item_list from './pages/Item_list';
 import Accounts from './pages/Accounts';
+import Home from './pages/Home'
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         {/* --- PAGE CONTENT --- */}
         <div className="content-container">
           <Routes>
-            <Route path="/" element={<Item_list />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Location" element={<Location />} />
             <Route path="/Item_list" element={<Item_list />} />
             <Route path="/Accounts" element={<Accounts />} />
