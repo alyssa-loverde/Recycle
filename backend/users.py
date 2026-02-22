@@ -1,14 +1,8 @@
-import csv
 import sqlite3
-from flask import Flask, redirect, render_template, request, url_for
-
-app= Flask(__name__)
-
 
 db = sqlite3.connect("users.db")
 cursor = db.cursor()
 
-@app.route("/")
 def setup_database():
     db = sqlite3.connect("users.db")
     cursor.execute('''
@@ -18,7 +12,6 @@ def setup_database():
                 ) ''')
     db.commit()
 
-@app.route("/users")
 def add_user(name):
     try:
         cursor.execute('''INSERT INTO users (name, points) VALUES
@@ -47,3 +40,4 @@ def read_records():
         name = row[0]
         points = row[1]
         print(f"{name} : {points}")
+
