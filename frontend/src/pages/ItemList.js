@@ -1,5 +1,5 @@
 import React from "react";
-import '../ItemList.css';
+import './ItemList.css';
 
 const codes = [
   { code: 0, name: 'Not_Recyclable', items: ['Aluminum Can', 'Glass Jar', 'Cardboard Box', 'Newspaper', 'Steel Soup Can', 'Copper Wiring'] },
