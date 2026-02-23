@@ -9,16 +9,16 @@ Our website, **Recycle!**, aims to connect users with nearby recycling centers, 
 
 ## Getting Started
 1. Clone the repository
-git clone https://github.com/alyssa-loverde/Recycle
-cd Recycle
+- git clone https://github.com/alyssa-loverde/Recycle
+- cd Recycle
 2. Set up the Backend
-cd backend
-pip install flask flask-cors
-python3 app.py
+- cd backend
+- pip install flask flask-cors
+- python3 app.py
 3. Set up the Frontend
-cd frontend
-npm install
-npm start
+- cd frontend
+- npm install
+- npm start
 
 ## Tech Stack
 ### Languages
@@ -29,7 +29,7 @@ npm start
 - Flask (backend)
 - Node.JS and React (frontend)
 
-## Improvements
+## Future Goals
 - Expanding to locations beyond Chicago
 - Creating password-protected profiles
 - Verification by the recycling centers before adding points
