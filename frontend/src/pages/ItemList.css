@@ -107,9 +107,8 @@ hr { /* horizontal line */
 .number-icon {
   width: 56px;
   height: 56px;
-  width: 200px;
+  display: block;
   margin: 0 auto;
-  text-align: center;
   
 }
 
