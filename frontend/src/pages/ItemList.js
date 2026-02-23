@@ -1,121 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './ItemList.css';
 
-const recyclingMap = [
-  { code: "0", material: "Not_Recyclable" },
-  { code: "1", material: "PET" },
-  { code: "2", material: "HDPE" },
-  { code: "3", material: "PVC" },
-  { code: "4", material: "LDPE" },
-  { code: "5", material: "PP" },
-  { code: "6", material: "PS" },
-  { code: "7", material: "Other" }
+const codes = [
+  { code: 0, name: 'Not_Recyclable', items: ['Aluminum Can', 'Glass Jar', 'Cardboard Box', 'Newspaper', 'Steel Soup Can', 'Copper Wiring'] },
+  { code: 1, name: 'PET', items: ['Water Bottle'] },
+  { code: 2, name: 'HDPE', items: ['Milk Jug', 'Shampoo Bottle'] },
+  { code: 3, name: 'PVC', items: ['PVC Piping'] },
+  { code: 4, name: 'LDPE', items: ['Cling Wrap', 'Grocery Bag'] },
+  { code: 5, name: 'PP', items: ['Yogurt Container', 'Takeout Container'] },
+  { code: 6, name: 'PS', items: ['Egg Carton', 'Styrofoam Cup'] },
+  { code: 7, name: 'Other', items: ['Sunglasses', 'Baby Bottle'] }
 ];
 
-function ItemList() {
-  const [groupedItems, setGroupedItems] = useState({});
-  const [formData, setFormData] = useState({ item: "", material: "0", code: "0" });
-  const [searchTerm, setSearchTerm] = useState(""); // State for search
-
-  const fetchItems = async () => {
-    try {
-      const response = await fetch("/items");
-      const data = await response.json();
-      const grouped = data.reduce((acc, [itemName, material, code]) => {
-        if (!acc[code]) acc[code] = { material, items: [] };
-        acc[code].items.push(itemName);
-        return acc;
-      }, {});
-      setGroupedItems(grouped);
-    } catch (error) {
-      console.error("Error fetching items:", error);
-    }
-  };
-
-  useEffect(() => { fetchItems(); }, []);
-
-  const handleMaterialChange = (selectedMaterial) => {
-    const found = recyclingMap.find(m => m.material === selectedMaterial);
-    setFormData({ ...formData, material: selectedMaterial, code: found.code });
-  };
-
-  const handleCodeChange = (selectedCode) => {
-    const found = recyclingMap.find(m => m.code === selectedCode);
-    setFormData({ ...formData, code: selectedCode, material: found.material });
-  };
-
-  const handleAddItem = async (e) => {
-    e.preventDefault();
-    if (!formData.item) return alert("Please enter an item name.");
-    await fetch("/items", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-    setFormData({ item: "", material: "0", code: "0" });
-    fetchItems();
-  };
-
+function ItemList(){
   return (
     <div className="ItemList">
-      <h1>Recycling Database</h1>
-
-      {/* --- SEARCH BAR SECTION --- */}
-      <div className="search-container">
-        <input 
-          type="text"
-          className="search-input"
-          placeholder="Search for an item (e.g. 'Bottle')..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-
-      <div className="add-container">
-        <h3>Add New Item</h3>
-        <form onSubmit={handleAddItem} className="add-form">
-          <input 
-            placeholder="Item (e.g. Milk Jug)" 
-            value={formData.item} 
-            onChange={(e) => setFormData({...formData, item: e.target.value})} 
-          />
-          <select value={formData.material} onChange={(e) => handleMaterialChange(e.target.value)}>
-            {recyclingMap.map(m => <option key={m.material} value={m.material}>{m.material}</option>)}
-          </select>
-          <select value={formData.code} onChange={(e) => handleCodeChange(e.target.value)}>
-            {recyclingMap.map(m => <option key={m.code} value={m.code}>Code {m.code}</option>)}
-          </select>
-          <button type="submit">Add</button>
-        </form>
-      </div>
+      <h1>Recycling Codes</h1>
 
       <section className="codes-list">
-        {Object.entries(groupedItems)
-          .sort()
-          .map(([code, data]) => {
-            // Filter the items within this category based on search term
-            const filteredItems = data.items.filter(item => 
-              item.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-
-            // Only show the category if it has items that match the search
-            if (filteredItems.length === 0 && searchTerm !== "") return null;
-
-            return (
-              <div key={code} className="code-block">
-                <div className="heading-with-icon">
-                  <img src={`/icons/num-${code}.svg`} className="number-icon" alt="icon" />
-                  <h2 className="code-heading">{data.material} (Code {code})</h2>
-                </div>
-                <div className="item-list-container">
-                  <strong>Items:</strong> {filteredItems.join(", ")}
-                </div>
-              </div>
-            );
-          })}
+        {codes.map((c, i) => (
+          <div key={c.code} className="code-block">
+            <div className="heading-with-icon">
+              <img src={`/num-${c.code}.svg`} className="number-icon" alt={`code ${c.code}`} />
+              <h2 className="code-heading">{c.name}</h2>
+            </div>
+            <p className="code-info"><strong>Common items:</strong> {c.items.join(', ')}</p>
+            {i < codes.length - 1 && <hr className="separator" />}
+          </div>
+        ))}
       </section>
     </div>
-  );
+  )
 }
 
 export default ItemList;
