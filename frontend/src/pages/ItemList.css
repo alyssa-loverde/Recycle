@@ -95,6 +95,8 @@ hr { /* horizontal line */
 
 .code-block {
   padding: 0.6rem 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #475d48;
 }
 
 .code-heading {
