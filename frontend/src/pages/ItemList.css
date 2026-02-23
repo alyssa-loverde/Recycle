@@ -77,3 +77,13 @@
   .search-input:focus {
     border-color: #000;
 }
+
+hr { /* horizontal line */
+  border: none;
+  height: 2px;
+  background-color: black;
+  margin: 20px 0;
+}
+
+
+
