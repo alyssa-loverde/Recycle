@@ -104,7 +104,7 @@ function ItemList() {
             return (
               <div key={code} className="code-block">
                 <div className="heading-with-icon">
-                  <img src={`/icons/num-${code}.svg`} className="number-icon" alt="icon" />
+                  <img src={`/num-${code}.svg`} className="number-icon" alt="icon" />
                   <h2 className="code-heading">{data.material} (Code {code})</h2>
                 </div>
                 <div className="item-list-container">
