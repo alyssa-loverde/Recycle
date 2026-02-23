@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../ItemList.css';
+import './ItemList.css';
 
 // The "Source of Truth" for your recycling categories
 const recyclingMap = [

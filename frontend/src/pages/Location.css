@@ -8,22 +8,22 @@
   transform: translateX(80px);
 }
 
-.dropDown-style{
+.dropDown-text{
   display: block;
   margin-left: 0;
-  transform: translateX(-500px);
+  transform: translateX(400px) translateY(-700px);
 }
 
-.dropDown-style1{
+.dropDown-box{
   display: block;
   margin-left: 0;
-  transform: translateX(280px);
+  transform: translateX(1135px) translateY(-700px);
 }
 
 .spot-style{
   display: block;
   margin-left: 0;
-  transform: translateX(400px) translateY(-700px);
+  transform: translateX(400px) translateY(-450px);
   
 }
 

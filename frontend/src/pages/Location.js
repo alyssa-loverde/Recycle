@@ -28,9 +28,9 @@ function RegionDropDown() {
 
   return (
     <div>
-      <h2 className="dropDown-style">Select your region:</h2>
+      <h2 className="dropDown-text">Select your region:</h2>
 
-      <select value={region} onChange={handleChange} className="dropDown-style1">
+      <select value={region} onChange={handleChange} className="dropDown-box">
         <option value="">-- Choose an option --</option>
         <option value="Central">Central</option>
         <option value="Far North Side">Far North Side</option>
@@ -43,7 +43,7 @@ function RegionDropDown() {
         <option value="West Side">West Side</option>
       </select>
 
-      <p className="dropDown-style">Selected Region: {region}</p>
+      <p className="dropDown-text">Selected Region: {region}</p>
       <ClosestLocation region={region} />
     </div>
   );
