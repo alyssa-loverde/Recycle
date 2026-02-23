@@ -6,6 +6,7 @@ function Location() {
   return (
     <div className="Location">
         <h1>Locations</h1>
+        <div className="content-container">
         <img
         className="map-style"
         src="https://media.istockphoto.com/id/2190991193/vector/the-districts-of-chicago.jpg?s=612x612&w=0&k=20&c=23lDBO3EIiuMxYraxgaayHCRIIKdTZOsZyCiPJiLTf8="
@@ -13,7 +14,11 @@ function Location() {
         width="600"
         height="600"
       />
+      <div className="info-column">
         <RegionDropDown />
+      </div>
+      </div>
+        
     </div>
   );
 }
@@ -28,9 +33,9 @@ function RegionDropDown() {
 
   return (
     <div>
-      <h2 className="dropDown-style">Select your region:</h2>
+      <h2 className="info-column">Select your region:</h2>
 
-      <select value={region} onChange={handleChange} className="dropDown-style1">
+      <select value={region} onChange={handleChange} className="spot-style">
         <option value="">-- Choose an option --</option>
         <option value="Central">Central</option>
         <option value="Far North Side">Far North Side</option>
@@ -43,7 +48,7 @@ function RegionDropDown() {
         <option value="West Side">West Side</option>
       </select>
 
-      <p className="dropDown-style">Selected Region: {region}</p>
+      <p className="info-column">Selected Region: {region}</p>
       <ClosestLocation region={region} />
     </div>
   );
@@ -80,8 +85,8 @@ function ClosestLocation({region}) {
     {
       return(
         <div>
-          <h2 className="spot-style">Nearest recycling center:</h2>
-          <h2 className="spot-style">Far North Side, 6441 N Ravenswood Ave</h2>
+          <h2 className="info-column2">Nearest recycling center:</h2>
+          <h2 className="info-column2">Far North Side, 6441 N Ravenswood Ave</h2>
         </div>
       )
     }
@@ -89,8 +94,8 @@ function ClosestLocation({region}) {
     {
       return(
         <div>
-          <h2 className="spot-style">Nearest recycling center:</h2>
-          <h2 className="spot-style">Notebaert Nature Museum, 2430 N Cannon Dr</h2>
+          <h2 className="info-column2">Nearest recycling center:</h2>
+          <h2 className="info-column2">Notebaert Nature Museum, 2430 N Cannon Dr</h2>
         </div>
       )
     }
@@ -98,10 +103,11 @@ function ClosestLocation({region}) {
     {
       return(
         <div>
-          <h2 className="spot-style">Nearest recycling centers:</h2>
-          <h2 className="spot-style">Household Chemicals and Computer Recycling Facility, 1150 N North Branch St</h2>
-          <h2 className="spot-style">West Loop, 1519 W Warren Blvd</h2>
-          <h2 className="spot-style">Near South, 1752 S Clark</h2>
+          <h2 className="info-column2">Nearest recycling centers:</h2>
+          <h2 className="info-column2">Household Chemicals and Computer Recycling Facility,</h2>
+          <h2 className="info-column2">1150 N North Branch St</h2>
+          <h2 className="info-column2">West Loop, 1519 W Warren Blvd</h2>
+          <h2 className="info-column2"> Near South, 1752 S Clark</h2>
         </div>
       )
     }
@@ -109,9 +115,9 @@ function ClosestLocation({region}) {
     {
       return(
         <div>
-          <h2 className="spot-style">Nearest recycling centers:</h2>
-          <h2 className="spot-style">Old Attucks School, 3850 S State St</h2>
-          <h2 className="spot-style">Washington Park, 5560 Russel Dr</h2>
+          <h2 className="info-column2">Nearest recycling centers:</h2>
+          <h2 className="info-column2">Old Attucks School, 3850 S State St</h2>
+          <h2 className="info-column2">Washington Park, 5560 Russel Dr</h2>
         </div>
       )
     }
@@ -119,8 +125,8 @@ function ClosestLocation({region}) {
     {
       return(
         <div>
-          <h2 className="spot-style">Nearest recycling center:</h2>
-          <h2 className="spot-style">Washington Park, 5560 Russel Dr</h2>
+          <h2 className="info-column2">Nearest recycling center:</h2>
+          <h2 className="info-column2">Washington Park, 5560 Russel Dr</h2>
         </div>
       )
     }
