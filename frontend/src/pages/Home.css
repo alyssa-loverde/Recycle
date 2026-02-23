@@ -19,3 +19,63 @@
   margin: 0.25rem 0;
   font-size: 1.5rem; /* smaller than main heading */
 }
+.home-container {
+    width: 100%;
+    overflow: hidden; /* Prevents stray scrollbars */
+}
+
+.hero-section {
+    width: 100%;
+    /* Reduced height to make room for text at bottom */
+    height: 45vh; 
+    background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)), 
+                      url('https://as1.ftcdn.net/jpg/07/97/85/80/1000_F_797858052_F9vvtqZWA4qfkuTaxe1vhfjG7vJh2h0b.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.hero-content h3 {
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    /* Reduced padding to keep things tight */
+    padding: 30px 5%; 
+    gap: 20px;
+    background-color: #f9f9f9;
+}
+
+.feature-box {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    /* Keeps boxes from getting too tall */
+    max-height: 250px; 
+}
+
+.feature-box h3 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.feature-box p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #555;
+}
