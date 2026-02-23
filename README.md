@@ -1,4 +1,4 @@
-# Recycle
+# Recycle!
 
 Our website, **Recycle!**, aims to connect users with nearby recycling centers, make users aware about common items, and promote recycling by having a leaderboard.
 
